@@ -23,15 +23,29 @@ public class Main {
             }
         }
 
-        System.out.println("No Switch strategy wins: " + noSwitchWins);
-        System.out.println("Switch strategy wins: " + switchWins);
-        System.out.println("Total wins: " + wins);
-        System.out.printf("Stick win rate: %.2f%%\n", (100.0 * noSwitchWins / simulations));
-        System.out.printf("Switch win rate: %.2f%%\n", (100.0 * switchWins / simulations));
-        System.out.printf("Total win rate: %.2f%%\n", (100.0 * wins / (2 * simulations)));
+        //add blue header
+        System.out.print("\u001B[34m");
+        System.out.println("Monty Hall Simulation Results");
+        System.out.println("------------------------------");
 
+
+        //results in orange
+        System.out.print("\u001B[33m");
         System.out.println("There were a total of " + simulations + " no switch simulations.");
         System.out.println("There were a total of " + simulations + " switch simulations.");
         System.out.println("There were a total of " + (2 * simulations) + " total simulations.");
+        System.out.println("No Switch strategy wins: " + noSwitchWins);
+        System.out.println("Switch strategy wins: " + switchWins);
+        System.out.println("Total wins: " + wins);
+
+        System.out.print("\u001B[34m");
+        System.out.println("\nBelow are the win rates for each strategy and the total win rate:");
+        System.out.println("-----------------------------------------------------------------");
+        System.out.print("\u001B[33m");
+        System.out.printf("No switch win rate: %.2f%%\n", (100.0 * noSwitchWins / simulations));
+        System.out.printf("Switch win rate: %.2f%%\n", (100.0 * switchWins / simulations));
+        System.out.printf("Total win rate: %.2f%%\n", (100.0 * wins / (2 * simulations)));
+        System.out.print("\u001B[0m");
+
     }
 }
