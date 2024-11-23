@@ -1,8 +1,6 @@
 package io.github.nathanjrussell;
 
 import java.util.Random;
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         int noSwitchWins = 0;
@@ -11,7 +9,7 @@ public class Main {
         int wins = 0;
 
         for (int i = 0; i < simulations; i++) {
-            int initialPick = new Random().nextInt(3)+1;
+            int initialPick = new Random().nextInt(3) + 1; //randomly select a door 1,2 or 3
             MontyHallGame noSwitchGame = new MontyHallGame(initialPick, false);
             MontyHallGame switchGame = new MontyHallGame(initialPick, true);
 
@@ -25,31 +23,15 @@ public class Main {
             }
         }
 
-        System.out.println("Stick strategy wins: " + noSwitchWins);
+        System.out.println("No Switch strategy wins: " + noSwitchWins);
         System.out.println("Switch strategy wins: " + switchWins);
+        System.out.println("Total wins: " + wins);
         System.out.printf("Stick win rate: %.2f%%\n", (100.0 * noSwitchWins / simulations));
         System.out.printf("Switch win rate: %.2f%%\n", (100.0 * switchWins / simulations));
-        System.out.println("Total wins: " + wins);
-        System.out.printf("Total win rate: %.2f%%\n", (100.0 * wins / (2*simulations)));
-//        Random random = new Random();
-//        int numGames = 100000;
-//        int numWinsSwitching = 0;
-//        int numWinsStaying = 0;
-//
-//        for (int i = 0; i < numGames; i++) {
-//            boolean switchDoor = random.nextBoolean();
-//            int pickedDoor = random.nextInt(3);
-//            MontyHallGame game = new MontyHallGame(pickedDoor, switchDoor);
-//            if (game.didPlayerWin()) {
-//                if (switchDoor) {
-//                    numWinsSwitching++;
-//                } else {
-//                    numWinsStaying++;
-//                }
-//            }
-//        }
-//
-//        System.out.println("Wins when switching (proportion): " + numWinsSwitching + " (" + (double) numWinsSwitching / numGames + ")");
-//        System.out.println("Wins when staying (proportion): " + numWinsStaying + " (" + (double) numWinsStaying / numGames + ")");
+        System.out.printf("Total win rate: %.2f%%\n", (100.0 * wins / (2 * simulations)));
+
+        System.out.println("There were a total of " + simulations + " no switch simulations.");
+        System.out.println("There were a total of " + simulations + " switch simulations.");
+        System.out.println("There were a total of " + (2 * simulations) + " total simulations.");
     }
 }
